@@ -107,10 +107,10 @@ class Question(models.Model):
            return False
 
 class Choice(models.Model):
-    questions = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice = models.TextField()
     is_correct = models.BooleanField()
 
 class Submission(models.Model):
    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
-   chocies = models.ManyToManyField(Choice)
+   choices = models.ManyToManyField(Choice)
